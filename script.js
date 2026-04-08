@@ -73,3 +73,48 @@ document.getElementById("form-agendamento").addEventListener("submit", async fun
   this.reset();
   status.textContent = "";
 });
+
+// CARROSSEL
+// CARROSSEL
+let index = 0;
+
+const slides = document.querySelector(".slides");
+const total = document.querySelectorAll(".antes-depois-card").length;
+const visiveis = 3;
+
+document.querySelector(".next").onclick = () => {
+  if (index < total - visiveis) {
+    index++;
+  } else {
+    index = 0;
+  }
+  atualizar();
+};
+
+document.querySelector(".prev").onclick = () => {
+  if (index > 0) {
+    index--;
+  } else {
+    index = total - visiveis;
+  }
+  atualizar();
+};
+
+function atualizar() {
+  slides.style.transform = `translateX(-${index * (100 / visiveis)}%)`;
+}
+
+/* AUTOPLAY */
+let auto = setInterval(() => {
+  document.querySelector(".next").click();
+}, 3000);
+
+document.querySelector(".carrossel").addEventListener("mouseenter", () => {
+  clearInterval(auto);
+});
+
+document.querySelector(".carrossel").addEventListener("mouseleave", () => {
+  auto = setInterval(() => {
+    document.querySelector(".next").click();
+  }, 3000);
+});

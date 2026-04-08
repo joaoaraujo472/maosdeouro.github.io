@@ -399,3 +399,76 @@ button:hover {
     font-size: 1rem;
   }
 }
+
+/* CONTAINER FULL */
+.container.full {
+  max-width: 100%;
+  padding: 20px 40px;
+}
+
+/* CARROSSEL */
+.carrossel {
+  width: 100%;
+  position: relative;
+  padding: 0 60px;
+}
+
+.container-carrossel {
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* CARDS */
+.antes-depois-card {
+  min-width: calc((100% - 40px) / 3);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.antes-depois-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* SETAS */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  color: var(--dourado);
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background: var(--dourado);
+  color: #000;
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .antes-depois-card {
+    min-width: calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .antes-depois-card {
+    min-width: 100%;
+  }
+}
