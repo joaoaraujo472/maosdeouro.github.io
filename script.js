@@ -80,7 +80,11 @@ let index = 0;
 
 const slides = document.querySelector(".slides");
 const total = document.querySelectorAll(".antes-depois-card").length;
-const visiveis = 3;
+let visiveis = window.innerWidth <= 768 ? 1 : 3;
+
+window.addEventListener("resize", () => {
+  visiveis = window.innerWidth <= 768 ? 1 : 3;
+});
 
 document.querySelector(".next").onclick = () => {
   if (index < total - visiveis) {
